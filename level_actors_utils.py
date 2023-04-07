@@ -119,7 +119,7 @@ def spawn_actor_from_class(actor_class , actor_label = '') :
     :param actor_label: actor的label
     :return: 
     '''
-    #设置location和rotation
+    # 设置location和rotation
     actor_location = unreal.Vector(0 , 0 , 0)
     actor_rotation = unreal.Rotator(0 , 0 , 0)
     actor = editor_actor_subsystem.spawn_actor_from_class(
@@ -137,15 +137,15 @@ def spawn_static_mesh_actor_from_asset(asset_path , actor_label = '') :
         :param actor_label: actor的label
         :return:
         '''
-    #创建StaticMeshActor类型的Actor，名称为actor_label
+    # 创建StaticMeshActor类型的Actor，名称为actor_label
     actor = spawn_actor_from_class(unreal.StaticMeshActor , actor_label)
 
-    #获取材质路径
+    # 获取材质路径
     asset = get_asset_by_path(asset_path)
     # sm_component = asset.get_component_by_class(unreal.StaticMeshComponent)
     # sm_component.set_editor_property('StaticMesh', asset)
 
-    #给创建出来的StaticMeshActor类型的Actor设置材质路径
+    # 给创建出来的StaticMeshActor类型的Actor设置材质路径
     actor.static_mesh_component.set_static_mesh(asset)
 
 
@@ -157,7 +157,7 @@ def destroy_actor_by_label(keyword) :
     '''
     actors = get_actors_by_label(keyword)
     for actor in actors :
-        #销毁actor
+        # 销毁actor
         actor.destroy_actor()
     return actors
 
